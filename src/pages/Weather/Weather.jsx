@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 export const Weather = () => {
-  const API_KEY = import.meta.env.VITE_API_URL;
+  const API_KEY = import.meta.env.VITE_API_URL || process.env.VITE_API_URL;
 
   const [coords, setCoords] = useState(null);
   const [weather, setWeather] = useState(null);
