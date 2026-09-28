@@ -46,6 +46,16 @@ export const Weather = () => {
         if (err.name !== "AbortError") setError(err.message);
       });
 
+    fetch(url, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(setWeather)
+      .catch((err) => {
+        if (err.name !== "AbortError") setError(err.message);
+      });
+
     return () => controller.abort();
   }, [coords]);
 
@@ -84,7 +94,7 @@ export const Weather = () => {
 
   return (
     <div className="container mt-3">
-      <h1 className="text-center">{weather.name}</h1>
+      <h1 className="text-center">{weather.name}!</h1>
       <div>
         <div className="d-flex justify-content-center align-items-center">
           <span style={{ fontSize: "10rem" }}>{icons[weather.weather[0].icon] || "?"}</span>

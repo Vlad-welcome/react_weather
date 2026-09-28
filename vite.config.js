@@ -19,34 +19,29 @@ export default defineConfig({
         short_name: "Weather",
         description: "Погода с офлайн-доступом",
         theme_color: "#ffffff",
+        display: "minimal-ui",
+        start_url: "/",
         icons: [
           {
-            src: "pwa-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "pwa-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any maskable",
+            src: "/favicon.ico",
+            sizes: "any",
           },
         ],
       },
       // Настройки Workbox для кеширования
       workbox: {
         // //отдавать index.html на любые навигационные запросы
-        // navigateFallback: "/index.html",
+        //navigateFallback: "/index.html",
 
         // //НЕ подменять на index.html
-        // navigateFallbackDenylist: [
-        //   /^\/api\//, // ваш бэкенд-API
-        //   /^\/__/, // служебные запросы Vite
-        //   /\/[^/?]+\.[^/]+$/, // любые файлы с расширением: .js, .css, .png и т.д.
-        // ],
+        //navigateFallbackDenylist: [
+        //  /^\/api\//, // ваш бэкенд-API
+        // /^\/__/, // служебные запросы Vite
+        // /\/[^/?]+\.[^/]+$/, // любые файлы с расширением: .js, .css, .png и т.д.
+        //],
 
         // Какие статические файлы кешировать "на старте"
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
+        globPatterns: ["**/*"],
         // Правила для кеширования запросов, которые происходят во время работы приложения
         runtimeCaching: [
           {
