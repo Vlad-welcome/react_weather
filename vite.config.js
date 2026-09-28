@@ -94,5 +94,5 @@ export default defineConfig({
     },
     hasWarned: false,
   },
-  //base: process.env.VITE_BASE_PATH || "/front",
+  base: process.env.VITE_BASE_PATH || "/react_weather",
 });
