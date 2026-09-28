@@ -77,13 +77,12 @@ define(['./workbox-970124e6'], (function (workbox) { 'use strict';
    * See https://goo.gl/S9QRab
    */
   workbox.precacheAndRoute([{
-    "url": "/index.html",
-    "revision": "0.oib17093dts"
+    "url": "index.html",
+    "revision": "0.5h5an7u6fts"
   }], {});
   workbox.cleanupOutdatedCaches();
-  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("/index.html"), {
-    allowlist: [/^\/$/],
-    denylist: [/^\/api\//, /^\/__/, /\/[^/?]+\.[^/]+$/]
+  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
+    allowlist: [/^\/$/]
   }));
   workbox.registerRoute(/^https:\/\/api\.openweathermap\.org\/.*/i, new workbox.NetworkFirst({
     "cacheName": "weather-api-cache",

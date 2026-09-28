@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       devOptions: {
-        enabled: false, // Включает Service Worker в режиме разработки
+        enabled: true, // Включает Service Worker в режиме разработки
         type: "module",
       },
       // 'autoUpdate' автоматически обновляет SW при выходе новой версии
@@ -35,15 +35,15 @@ export default defineConfig({
       },
       // Настройки Workbox для кеширования
       workbox: {
-        //отдавать index.html на любые навигационные запросы
-        navigateFallback: "/index.html",
+        // //отдавать index.html на любые навигационные запросы
+        // navigateFallback: "/index.html",
 
-        //НЕ подменять на index.html
-        navigateFallbackDenylist: [
-          /^\/api\//, // ваш бэкенд-API
-          /^\/__/, // служебные запросы Vite
-          /\/[^/?]+\.[^/]+$/, // любые файлы с расширением: .js, .css, .png и т.д.
-        ],
+        // //НЕ подменять на index.html
+        // navigateFallbackDenylist: [
+        //   /^\/api\//, // ваш бэкенд-API
+        //   /^\/__/, // служебные запросы Vite
+        //   /\/[^/?]+\.[^/]+$/, // любые файлы с расширением: .js, .css, .png и т.д.
+        // ],
 
         // Какие статические файлы кешировать "на старте"
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
@@ -94,5 +94,5 @@ export default defineConfig({
     },
     hasWarned: false,
   },
-  base: process.env.VITE_BASE_PATH || "/react_weather",
+  //base: process.env.VITE_BASE_PATH || "/react_weather",
 });
