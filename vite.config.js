@@ -15,16 +15,29 @@ export default defineConfig({
       registerType: "autoUpdate",
       // Настройки для генерации Web App Manifest
       manifest: {
-        name: "Weather PWA",
+        name: "Weather",
         short_name: "Weather",
-        description: "Погода с офлайн-доступом",
+        description: "Weather",
         theme_color: "#ffffff",
-        display: "minimal-ui",
+        background_color: "#ffffff",
+        display: "standalone",
         start_url: "/",
         icons: [
           {
-            src: "/favicon.ico",
-            sizes: "any",
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable", // Для адаптивных иконок на Android
           },
         ],
       },
