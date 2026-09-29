@@ -11,8 +11,9 @@ export default defineConfig({
         enabled: true, // Включает Service Worker в режиме разработки
         type: "module",
       },
-      // 'autoUpdate' автоматически обновляет SW при выходе новой версии
-      registerType: "autoUpdate",
+      strategies: "generateSW", // явно указываем стратегию
+      injectRegister: "auto", // плагин сам вставит регистрацию SW
+      registerType: "autoUpdate", // 'autoUpdate' автоматически обновляет SW при выходе новой версии
       // Настройки для генерации Web App Manifest
       manifest: {
         name: "Weather",
@@ -43,16 +44,6 @@ export default defineConfig({
       },
       // Настройки Workbox для кеширования
       workbox: {
-        // //отдавать index.html на любые навигационные запросы
-        //navigateFallback: "/index.html",
-
-        // //НЕ подменять на index.html
-        //navigateFallbackDenylist: [
-        //  /^\/api\//, // ваш бэкенд-API
-        // /^\/__/, // служебные запросы Vite
-        // /\/[^/?]+\.[^/]+$/, // любые файлы с расширением: .js, .css, .png и т.д.
-        //],
-
         // Какие статические файлы кешировать "на старте"
         globPatterns: ["**/*"],
         // Правила для кеширования запросов, которые происходят во время работы приложения
